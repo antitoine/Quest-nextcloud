@@ -1,0 +1,15 @@
+{
+    "name": "Quest",
+    "description": "Connector to the Quest&#39;s tool",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Antoine CHABERT"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>quest</id>
+    <name>Quest</name>
+    <summary>Connector to the Quest&#39;s tool</summary>
+    <description><![CDATA[Quest is a meta-search client that can connect to various applications and sources. It will submit a search query to all the configured services and aggregate the results. This application allows you to search by including your files in Nextcloud.]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="chabert.antoine@gmail.com" homepage="https://github.com/antitoine/Quest-nextcloud">Antoine CHABERT</author>
+    <namespace>Quest</namespace>
+    <category>integration</category>
+    <bugs>https://github.com/antitoine/Quest-nextcloud/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="15" max-version="15"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>Quest</name>
+            <route>quest.page.index</route>
+        </navigation>
+    </navigations>
+</info>
