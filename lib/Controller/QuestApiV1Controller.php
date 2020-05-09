@@ -27,12 +27,32 @@ class QuestApiV1Controller extends ApiController {
 	 * @param string $q the query string
 	 * @param int $page the page offset
 	 * @param int $limit the limit of result
+	 * @param string[] $inApps optionally limit results to the given apps
+	 * @param bool $computeHasMore optionally ask to compute if has more result
 	 * @return JSONResponse
 	 */
-	public function search(string $q, int $page = 1, int $limit = 30): JSONResponse {
-		$results = $this->searcher->searchPaged($q, ['files'], $page, $limit);
-
-		return new JSONResponse($results);
+	public function search(string $q, int $page = 1, int $limit = 30, array $inApps = [], bool $computeHasMore = false): JSONResponse {
+		$results = $this->searcher->searchPaged($q, $inApps, $page, $limit);
+		$hasMore = null;
+		if ($computeHasMore) {
+			$resultForHasMore = $this->searcher->searchPaged($q, $inApps, $page + 1, $limit);
+			$hasMore = count($resultForHasMore) > 0;
+		}
+		return new JSONResponse([
+			'results' => $results,
+			'length' => count($results),
+			'has_more' => $hasMore,
+		]);
 	}
 
+	/**
+	 * @CORS
+	 * @NoCSRFRequired
+	 * @NoAdminRequired
+	 */
+	public function check(): JSONResponse {
+		return new JSONResponse([
+			'status' => 'ok',
+		]);
+	}
 }

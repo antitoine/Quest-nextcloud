@@ -10,6 +10,7 @@
 return [
 	'routes' => [
 		['name' => 'quest_api_v1#preflighted_cors', 'url' => '/api/0.1/{path}', 'verb' => 'OPTIONS', 'requirements' => ['path' => '.+']],
-		['name' => 'quest_api_v1#search', 'url' => '/api/0.1/search']
+		['name' => 'quest_api_v1#search', 'url' => '/api/0.1/search'],
+		['name' => 'quest_api_v1#check', 'url' => '/api/0.1/check']
 	]
 ];
