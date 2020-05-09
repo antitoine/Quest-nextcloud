@@ -49,6 +49,8 @@ class QuestApiV1Controller extends ApiController {
 	 * @CORS
 	 * @NoCSRFRequired
 	 * @NoAdminRequired
+	 *
+	 * @return JSONResponse
 	 */
 	public function check(): JSONResponse {
 		return new JSONResponse([
